@@ -1,3 +1,6 @@
+/* ========================================
+   bottaogoogle - Website Styles
+   ======================================== */
 
 * {
   box-sizing: border-box;
@@ -11,6 +14,7 @@
   --text: #f4f7ff;
   --muted: #aab5ce;
   --blue: #4d8dff;
+  --green: #55d6a2;
   --border: #273450;
 }
 
@@ -20,6 +24,7 @@ html {
 }
 
 body {
+  min-height: 100vh;
   font-family: Arial, Helvetica, sans-serif;
   background: var(--background);
   color: var(--text);
@@ -30,6 +35,12 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
+img {
+  max-width: 100%;
+}
+
+/* Header */
 
 .header {
   position: sticky;
@@ -42,16 +53,18 @@ a {
   padding: 18px 7%;
   background: rgba(11, 16, 32, 0.96);
   border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(12px);
 }
 
 .logo {
   font-size: 19px;
   font-weight: 800;
   letter-spacing: 1px;
+  white-space: nowrap;
 }
 
 .logo span {
-  color: var(--blue);
+  color: var(--green);
   margin-left: 5px;
 }
 
@@ -64,11 +77,14 @@ nav {
 nav a {
   color: var(--muted);
   font-size: 14px;
+  transition: color 0.2s;
 }
 
 nav a:hover {
   color: white;
 }
+
+/* Hero */
 
 .hero {
   min-height: 490px;
@@ -86,11 +102,12 @@ nav a:hover {
 }
 
 .tag {
-  color: #82b0ff;
+  color: var(--green);
   font-size: 12px;
   font-weight: 800;
   letter-spacing: 2px;
   margin-bottom: 14px;
+  text-transform: uppercase;
 }
 
 h1 {
@@ -98,6 +115,7 @@ h1 {
   line-height: 1.16;
   letter-spacing: -1.5px;
   margin-bottom: 22px;
+  overflow-wrap: anywhere;
 }
 
 h1 span {
@@ -109,6 +127,8 @@ h1 span {
   color: var(--muted);
   font-size: 17px;
 }
+
+/* Buttons */
 
 .buttons {
   display: flex;
@@ -139,7 +159,10 @@ h1 span {
 .secondary {
   border: 1px solid #52617e;
   color: white;
+  background: rgba(255, 255, 255, 0.03);
 }
+
+/* General sections */
 
 .section {
   padding: 75px 8%;
@@ -163,6 +186,8 @@ h1 span {
   color: var(--muted);
 }
 
+/* Feature cards */
+
 .cards {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -174,6 +199,12 @@ h1 span {
   border: 1px solid var(--border);
   border-radius: 16px;
   padding: 26px;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: #4d8dff;
 }
 
 .card-icon {
@@ -194,6 +225,8 @@ h1 span {
   font-size: 15px;
 }
 
+/* Notice */
+
 .notice {
   max-width: 900px;
   margin: 25px auto 0;
@@ -204,6 +237,8 @@ h1 span {
   background: #241f16;
   font-size: 14px;
 }
+
+/* Guide */
 
 .guide-section {
   background: #0e1528;
@@ -238,6 +273,8 @@ h1 span {
   font-weight: 800;
 }
 
+/* ZaloPay */
+
 .payment-card {
   max-width: 430px;
   margin: auto;
@@ -265,6 +302,8 @@ h1 span {
   margin-top: 14px;
 }
 
+/* Contact */
+
 .contact-section {
   padding-top: 25px;
 }
@@ -283,6 +322,8 @@ h1 span {
   margin-top: 24px;
 }
 
+/* Footer */
+
 footer {
   text-align: center;
   padding: 28px 16px;
@@ -290,6 +331,8 @@ footer {
   color: var(--muted);
   font-size: 13px;
 }
+
+/* Mobile */
 
 @media (max-width: 760px) {
   .header {
@@ -322,5 +365,22 @@ footer {
 
   .button {
     width: 100%;
+  }
+
+  .step {
+    gap: 12px;
+    padding: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
   }
 }
