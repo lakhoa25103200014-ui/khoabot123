@@ -3,59 +3,265 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Trang giới thiệu bot Telegram Bottaogoogle_bot.">
+  <meta name="description" content="Website Bottaogoogle_bot">
   <meta name="theme-color" content="#0b1220">
   <title>Bottaogoogle_bot | Bot Telegram</title>
+
   <link rel="stylesheet" href="style.css">
   <script src="config.js" defer></script>
   <script src="script.js" defer></script>
+  <script
+    src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+    async defer>
+  </script>
 </head>
+
 <body>
 <header class="site-header">
   <div class="container nav-wrap">
-    <a class="brand" href="#home"><span class="brand-mark">B</span><span>Bottaogoogle_bot</span></a>
-    <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="mainNav">☰ Menu</button>
+    <a class="brand" href="#home">
+      <span class="brand-mark">B</span>
+      <span>Bottaogoogle_bot</span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle"
+      type="button" aria-expanded="false" aria-controls="mainNav">
+      ☰ Menu
+    </button>
+
     <nav class="main-nav" id="mainNav" aria-label="Điều hướng">
-      <a href="#features">Tính năng</a><a href="#guide">Hướng dẫn</a><a href="#payment">ZaloPay</a><a href="#contact">Liên hệ</a>
+      <a href="#features">Tính năng</a>
+      <a href="#guide">Hướng dẫn</a>
+      <a href="#captcha">CAPTCHA</a>
+      <a href="#payment">ZaloPay</a>
+      <a href="#contact">Liên hệ</a>
     </nav>
   </div>
 </header>
+
 <main>
-  <section class="hero" id="home"><div class="container hero-grid">
-    <div class="hero-copy"><span class="eyebrow">● BOT TELEGRAM</span>
-      <h1>Chào mừng đến với <span>Bottaogoogle_bot</span></h1>
-      <p class="hero-text">Trang giới thiệu và hướng dẫn sử dụng bot Telegram. Tìm hiểu các lệnh cơ bản và cách liên hệ quản trị viên.</p>
-      <div class="button-row"><a class="button button-primary" id="openBot" href="https://t.me/Bottaogoogle_bot" target="_blank" rel="noopener noreferrer">Mở bot trên Telegram ↗</a><a class="button button-secondary" href="#guide">Xem hướng dẫn</a></div>
-      <p class="hint">Username bot được đặt trong <code>config.js</code>. Nếu Telegram báo không tìm thấy username, hãy xác minh username với BotFather.</p>
+  <section class="hero" id="home">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow">● BOT TELEGRAM</span>
+
+        <h1>Chào mừng đến với
+          <span>Bottaogoogle_bot</span>
+        </h1>
+
+        <p class="hero-text">
+          Trang giới thiệu bot Telegram, hướng dẫn sử dụng
+          và thông tin liên hệ.
+        </p>
+
+        <div class="button-row">
+          <a class="button button-primary"
+            href="https://t.me/Bottaogoogle_bot"
+            target="_blank" rel="noopener noreferrer">
+            Mở bot Telegram ↗
+          </a>
+
+          <a class="button button-secondary" href="#guide">
+            Xem hướng dẫn
+          </a>
+        </div>
+      </div>
+
+      <aside class="hero-panel">
+        <div class="panel-top">
+          <span class="lights">● ● ●</span>
+          <b>Bottaogoogle_bot</b>
+        </div>
+
+        <div class="bot-avatar">B</div>
+        <h2>Bottaogoogle_bot</h2>
+        <p>Trợ lý Telegram</p>
+
+        <div class="panel-line">
+          <span>Nền tảng</span>
+          <strong>Telegram</strong>
+        </div>
+
+        <a class="text-link"
+          href="https://t.me/Bottaogoogle_bot"
+          target="_blank" rel="noopener noreferrer">
+          Mở cuộc trò chuyện →
+        </a>
+      </aside>
     </div>
-    <aside class="hero-panel"><div class="panel-top"><span class="lights">● ● ●</span><b>Bottaogoogle_bot</b></div><div class="bot-avatar">B</div><h2>Bottaogoogle_bot</h2><p>Trợ lý Telegram</p><div class="panel-line"><span>Nền tảng</span><strong>Telegram</strong></div><a class="text-link" id="panelBotLink" href="https://t.me/Bottaogoogle_bot" target="_blank" rel="noopener noreferrer">Mở cuộc trò chuyện →</a></aside>
-  </div></section>
-  <section class="section" id="features"><div class="container">
-    <div class="section-heading"><span class="eyebrow">TỔNG QUAN</span><h2>Thông tin về bot</h2><p>Giao diện đơn giản, dễ sử dụng trên máy tính và điện thoại.</p></div>
-    <div class="feature-grid">
-      <article class="feature-card"><div class="feature-icon">🔗</div><h3>Kiểm tra đường dẫn</h3><p>Tham khảo cách nhận biết link đáng ngờ. Không nhập mật khẩu hoặc mã OTP vào trang web lạ.</p></article>
-      <article class="feature-card"><div class="feature-icon">📘</div><h3>Lệnh cơ bản</h3><p>Dùng /start để bắt đầu và /help để xem hướng dẫn nếu bot đã hỗ trợ các lệnh này.</p></article>
-      <article class="feature-card"><div class="feature-icon">💬</div><h3>Liên hệ hỗ trợ</h3><p>Thông tin quản trị viên có thể chỉnh trong file config.js.</p></article>
+  </section>
+
+  <section class="section" id="features">
+    <div class="container">
+      <div class="section-heading">
+        <span class="eyebrow">TỔNG QUAN</span>
+        <h2>Thông tin về bot</h2>
+        <p>Giao diện đơn giản cho máy tính và điện thoại.</p>
+      </div>
+
+      <div class="feature-grid">
+        <article class="feature-card">
+          <div class="feature-icon">🔗</div>
+          <h3>Kiểm tra đường dẫn</h3>
+          <p>
+            Cẩn thận với liên kết lạ. Không nhập mật khẩu
+            hoặc mã OTP vào website không đáng tin cậy.
+          </p>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">📘</div>
+          <h3>Lệnh cơ bản</h3>
+          <p>
+            Gửi /start hoặc /help nếu bot của bạn hỗ trợ
+            những lệnh này.
+          </p>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">💬</div>
+          <h3>Hỗ trợ</h3>
+          <p>Mở bot Telegram để liên hệ và xem hướng dẫn.</p>
+        </article>
+      </div>
+
+      <div class="notice">
+        <strong>Lưu ý:</strong>
+        Bot Python cần được chạy riêng trên máy tính hoặc máy chủ.
+      </div>
     </div>
-    <div class="notice"><strong>Lưu ý:</strong> Website này chỉ là trang giới thiệu. Bot Python cần được chạy riêng trên máy tính hoặc máy chủ.</div>
-  </div></section>
-  <section class="section section-muted" id="guide"><div class="container">
-    <div class="section-heading"><span class="eyebrow">BẮT ĐẦU</span><h2>Hướng dẫn sử dụng</h2><p>Các bước cơ bản để mở bot trên Telegram.</p></div>
-    <div class="guide-grid">
-      <article class="step-card"><span class="step-number">01</span><h3>Mở bot</h3><p>Nhấn nút “Mở bot trên Telegram”.</p></article>
-      <article class="step-card"><span class="step-number">02</span><h3>Bắt đầu trò chuyện</h3><p>Nhấn Start hoặc gửi <code>/start</code>.</p></article>
-      <article class="step-card"><span class="step-number">03</span><h3>Xem trợ giúp</h3><p>Gửi <code>/help</code> để xem những lệnh bot thực sự hỗ trợ.</p></article>
+  </section>
+
+  <section class="section section-muted" id="guide">
+    <div class="container">
+      <div class="section-heading">
+        <span class="eyebrow">BẮT ĐẦU</span>
+        <h2>Hướng dẫn sử dụng</h2>
+        <p>Các bước cơ bản để mở bot.</p>
+      </div>
+
+      <div class="guide-grid">
+        <article class="step-card">
+          <span class="step-number">01</span>
+          <h3>Mở bot</h3>
+          <p>Nhấn nút Mở bot Telegram.</p>
+        </article>
+
+        <article class="step-card">
+          <span class="step-number">02</span>
+          <h3>Bắt đầu trò chuyện</h3>
+          <p>Nhấn Start hoặc gửi /start.</p>
+        </article>
+
+        <article class="step-card">
+          <span class="step-number">03</span>
+          <h3>Xem trợ giúp</h3>
+          <p>Gửi /help nếu bot hỗ trợ lệnh này.</p>
+        </article>
+      </div>
+
+      <div class="commands">
+        <div><code>/start</code><span>Bắt đầu sử dụng bot</span></div>
+        <div><code>/help</code><span>Xem hướng dẫn</span></div>
+        <div><code>/check URL</code><span>Chỉ hoạt động nếu bot đã cài lệnh này</span></div>
+      </div>
     </div>
-    <div class="commands"><div><code>/start</code><span>Bắt đầu sử dụng bot</span></div><div><code>/help</code><span>Xem hướng dẫn</span></div><div><code>/check URL</code><span>Chỉ dùng nếu bot của bạn đã có lệnh kiểm tra URL</span></div></div>
-  </div></section>
-  <section class="section" id="payment"><div class="container">
-    <div class="section-heading"><span class="eyebrow">ỦNG HỘ</span><h2>Ủng hộ qua ZaloPay</h2><p>Quét mã QR nếu bạn muốn ủng hộ dự án.</p></div>
-    <div class="payment-card"><div class="qr-frame"><img id="paymentQr" src="zalopay-qr.png" alt="Mã QR ZaloPay"><p id="qrFallback" hidden>Chưa có ảnh QR. Thêm ảnh tên <code>zalopay-qr.png</code> vào cùng thư mục với index.html.</p></div><div class="payment-info"><h3>Mã QR ZaloPay</h3><p>Đặt ảnh QR của bạn vào thư mục website và đặt tên chính xác là <code>zalopay-qr.png</code>.</p><p class="small-note">Kiểm tra đúng người nhận và số tiền trước khi chuyển khoản.</p></div></div>
-  </div></section>
-  <section class="section section-muted" id="contact"><div class="container">
-    <div class="section-heading"><span class="eyebrow">LIÊN HỆ</span><h2>Liên hệ quản trị viên</h2><p>Cập nhật username quản trị viên trong file <code>config.js</code>.</p></div>
-    <div class="contact-card"><div class="contact-icon">✉</div><div class="contact-copy"><h3>Quản trị viên</h3><p id="adminUsername">Chưa cấu hình username</p></div><a class="button button-primary" id="contactButton" href="#contact">Nhắn tin ↗</a></div>
-  </div></section>
+  </section>
+
+  <section class="section" id="captcha">
+    <div class="container">
+      <div class="section-heading">
+        <span class="eyebrow">BẢO VỆ BIỂU MẪU</span>
+        <h2>Xác minh Cloudflare Turnstile</h2>
+        <p>
+          Hoàn thành CAPTCHA để thử widget trên website.
+          Xác minh phía máy chủ vẫn cần được cấu hình riêng.
+        </p>
+      </div>
+
+      <div class="contact-card" style="display:block">
+        <div
+          class="cf-turnstile"
+          data-sitekey="0x4AAAAAAFm5sjcH8_Zuc913"
+          data-theme="auto">
+        </div>
+
+        <p id="captcha-status" role="status">
+          CAPTCHA đã được thêm vào giao diện.
+          Backend cần xác minh token trước khi cho phép
+          thực hiện hành động được bảo vệ.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="payment">
+    <div class="container">
+      <div class="section-heading">
+        <span class="eyebrow">ỦNG HỘ</span>
+        <h2>Ủng hộ qua ZaloPay</h2>
+        <p>Quét mã QR nếu bạn muốn ủng hộ dự án.</p>
+      </div>
+
+      <div class="payment-card">
+        <div class="qr-frame">
+          <img src="zalopay-qr.png" alt="Mã QR ZaloPay">
+          <p id="qrFallback" hidden>
+            Hãy thêm ảnh zalopay-qr.png vào thư mục website.
+          </p>
+        </div>
+
+        <div class="payment-info">
+          <h3>Mã QR ZaloPay</h3>
+          <p>
+            Tên ảnh QR phải là
+            <code>zalopay-qr.png</code> và nằm cùng thư mục
+            với file index.html.
+          </p>
+          <p class="small-note">
+            Kiểm tra đúng người nhận và số tiền trước khi chuyển khoản.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-muted" id="contact">
+    <div class="container">
+      <div class="section-heading">
+        <span class="eyebrow">LIÊN HỆ</span>
+        <h2>Liên hệ quản trị viên</h2>
+        <p>Liên hệ qua bot Telegram.</p>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-icon">✉</div>
+
+        <div class="contact-copy">
+          <h3>Bot Telegram</h3>
+          <p>@Bottaogoogle_bot</p>
+        </div>
+
+        <a class="button button-primary"
+          href="https://t.me/Bottaogoogle_bot"
+          target="_blank" rel="noopener noreferrer">
+          Nhắn tin ↗
+        </a>
+      </div>
+    </div>
+  </section>
 </main>
-<footer class="site-footer"><div class="container footer-inner"><a class="brand" href="#home"><span class="brand-mark">B</span><span>Bottaogoogle_bot</span></a><p>© <span id="year"></span> Bottaogoogle_bot. Website giới thiệu bot Telegram.</p></div></footer>
-</body></html>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <a class="brand" href="#home">
+      <span class="brand-mark">B</span>
+      <span>Bottaogoogle_bot</span>
+    </a>
+
+    <p>© 2026 Bottaogoogle_bot</p>
+  </div>
+</footer>
+
+</body>
+</html>
