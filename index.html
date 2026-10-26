@@ -1,166 +1,567 @@
-
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Website giới thiệu và hướng dẫn sử dụng bot Telegram.">
-  <title> | Trang chủ</title>
-  <link rel="stylesheet" href="style.css">
+
+  <title>bottaogoogle | Telegram Bot</title>
+  <meta name="description" content="Website chính thức của bottaogoogle. Xem hướng dẫn sử dụng bot Telegram và liên hệ quản trị viên.">
+  <meta name="theme-color" content="#0b1020">
+
+  <style>
+    :root {
+      --bg: #080d1a;
+      --card: #111a2e;
+      --text: #f4f7ff;
+      --muted: #aab6cc;
+      --primary: #6c63ff;
+      --secondary: #18c8a8;
+      --border: rgba(255,255,255,.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 15% 10%, #192552 0, transparent 32%),
+        radial-gradient(circle at 85% 25%, #172c3b 0, transparent 28%),
+        var(--bg);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(8, 13, 26, .88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav {
+      min-height: 72px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 21px;
+      font-weight: 800;
+      letter-spacing: -.5px;
+    }
+
+    .logo span {
+      color: var(--secondary);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .nav-links a:hover {
+      color: white;
+    }
+
+    .hero {
+      padding: 95px 0 80px;
+      text-align: center;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      color: #b8ffe9;
+      border-radius: 30px;
+      padding: 7px 15px;
+      font-size: 13px;
+      margin-bottom: 24px;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--secondary);
+    }
+
+    h1 {
+      font-size: clamp(38px, 7vw, 68px);
+      line-height: 1.12;
+      letter-spacing: -2px;
+      margin-bottom: 22px;
+    }
+
+    .gradient {
+      background: linear-gradient(90deg, #8b83ff, #37e6c3);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      max-width: 680px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      padding: 13px 22px;
+      border-radius: 12px;
+      font-weight: 700;
+      transition: transform .2s, opacity .2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      opacity: .9;
+    }
+
+    .btn-primary {
+      color: white;
+      background: linear-gradient(135deg, #7168ff, #5148d9);
+    }
+
+    .btn-secondary {
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.04);
+    }
+
+    section {
+      padding: 55px 0;
+      scroll-margin-top: 85px;
+    }
+
+    .section-title {
+      font-size: clamp(27px, 4vw, 38px);
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    .section-desc {
+      color: var(--muted);
+      text-align: center;
+      max-width: 650px;
+      margin: 0 auto 34px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: rgba(17, 26, 46, .86);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 25px;
+    }
+
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: rgba(108, 99, 255, .17);
+      font-size: 24px;
+      margin-bottom: 17px;
+    }
+
+    .card h3 {
+      font-size: 19px;
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .commands {
+      max-width: 760px;
+      margin: auto;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: rgba(17, 26, 46, .86);
+    }
+
+    .command {
+      padding: 17px 21px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .command:last-child {
+      border-bottom: 0;
+    }
+
+    .command code {
+      color: #9c96ff;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .command span {
+      color: var(--muted);
+      text-align: right;
+      font-size: 14px;
+    }
+
+    .payment-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 30px;
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .payment-info p {
+      color: var(--muted);
+      margin-top: 12px;
+    }
+
+    .qr-card {
+      text-align: center;
+      background: white;
+      color: #182033;
+      border-radius: 20px;
+      padding: 22px;
+    }
+
+    .qr-card img {
+      display: block;
+      width: 100%;
+      max-width: 280px;
+      height: auto;
+      margin: 15px auto;
+      border-radius: 8px;
+    }
+
+    .qr-placeholder {
+      color: #5a6475;
+      border: 2px dashed #c6ccda;
+      border-radius: 12px;
+      padding: 30px 12px;
+      font-size: 14px;
+      overflow-wrap: anywhere;
+    }
+
+    .note {
+      font-size: 12px;
+      color: #667085;
+    }
+
+    .contact-card {
+      max-width: 720px;
+      margin: auto;
+      text-align: center;
+      background: linear-gradient(135deg, rgba(108,99,255,.15), rgba(24,200,168,.08));
+      border: 1px solid var(--border);
+      padding: 36px 24px;
+      border-radius: 22px;
+    }
+
+    .contact-card p {
+      color: var(--muted);
+      margin: 12px auto 0;
+      max-width: 550px;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      margin-top: 50px;
+      padding: 26px 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 760px) {
+      .nav-links {
+        gap: 12px;
+        font-size: 12px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .payment-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 70px;
+      }
+
+      .command {
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 430px) {
+      nav {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 14px 0;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+      }
+
+      .command {
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .command span {
+        text-align: left;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <header class="header">
-    <a class="logo" href="#home"></a>
-    <nav>
-      <a href="#features">Tính năng</a>
-      <a href="#guide">Hướng dẫn</a>
-      <a href="#payment">ZaloPay</a>
-      <a href="#contact">Liên hệ</a>
-    </nav>
+  <header>
+    <div class="container">
+      <nav>
+        <a class="logo" href="#home">bottao<span>google</span></a>
+
+        <div class="nav-links">
+          <a href="#features">Chức năng</a>
+          <a href="#guide">Hướng dẫn</a>
+          <a href="#payment">ZaloPay</a>
+          <a href="#contact">Liên hệ</a>
+        </div>
+      </nav>
+    </div>
   </header>
 
   <main>
     <section class="hero" id="home">
-      <div class="hero-content">
-        <p class="tag">TELEGRAM BOT • WEBSITE CHÍNH THỨC</p>
-        <h1>Trải nghiệm bot Telegram<br><span>đơn giản và tiện lợi</span></h1>
-        <p class="subtitle">
-          Xem hướng dẫn sử dụng bot, kiểm tra đường dẫn,
-          theo dõi yêu cầu và liên hệ quản trị viên.
+      <div class="container">
+        <div class="status">
+          <span class="status-dot"></span>
+          Website giới thiệu bot Telegram
+        </div>
+
+        <h1>
+          Chào mừng đến với<br>
+          <span class="gradient">bottaogoogle</span>
+        </h1>
+
+        <p>
+          Khám phá các chức năng của bot Telegram, xem hướng dẫn sử dụng
+          và liên hệ quản trị viên khi bạn cần hỗ trợ.
         </p>
+
         <div class="buttons">
-          <a class="button primary"
-             href="https://t.me/THAY_USERNAME_BOT"
-             target="_blank" rel="noopener">
-            Mở bot Telegram
+          <!-- Thay BOT_USERNAME bằng username bot thật, không có dấu @ -->
+          <a class="btn btn-primary"
+             href="https://t.me/BOT_USERNAME"
+             target="_blank"
+             rel="noopener noreferrer">
+            ✈ Mở bot Telegram
           </a>
-          <a class="button secondary" href="#guide">
-            Xem hướng dẫn
+
+          <a class="btn btn-secondary" href="#guide">
+            Xem hướng dẫn ↓
           </a>
         </div>
       </div>
     </section>
 
-    <section class="section" id="features">
-      <div class="section-heading">
-        <p class="tag">TÍNH NĂNG</p>
-        <h2>Bạn có thể làm gì?</h2>
-        <p>Thông tin cơ bản về các chức năng của bot.</p>
-      </div>
+    <section id="features">
+      <div class="container">
+        <h2 class="section-title">Chức năng nổi bật</h2>
+        <p class="section-desc">
+          Những tiện ích dự kiến dành cho người dùng bottaogoogle.
+        </p>
 
-      <div class="cards">
-        <article class="card">
-          <div class="card-icon">🔗</div>
-          <h3>Kiểm tra URL</h3>
-          <p>Gửi đường dẫn để bot hỗ trợ kiểm tra chuyển hướng
-             và nhận diện một số dấu hiệu đáng chú ý.</p>
-        </article>
+        <div class="grid">
+          <article class="card">
+            <div class="card-icon">🔗</div>
+            <h3>Kiểm tra liên kết</h3>
+            <p>
+              Hỗ trợ kiểm tra URL, xem địa chỉ chuyển hướng và nhận cảnh báo
+              khi liên kết có dấu hiệu đáng ngờ.
+            </p>
+          </article>
 
-        <article class="card">
-          <div class="card-icon">📋</div>
-          <h3>Hướng dẫn rõ ràng</h3>
-          <p>Xem cách bắt đầu, các lệnh cơ bản và cách gửi
-             yêu cầu cho bot.</p>
-        </article>
+          <article class="card">
+            <div class="card-icon">🛡️</div>
+            <h3>Nhận diện CAPTCHA</h3>
+            <p>
+              Nhận biết một số trang yêu cầu CAPTCHA và hướng dẫn người dùng
+              tự xác minh trên website hợp pháp.
+            </p>
+          </article>
 
-        <article class="card">
-          <div class="card-icon">💬</div>
-          <h3>Hỗ trợ người dùng</h3>
-          <p>Liên hệ quản trị viên nếu gặp lỗi hoặc cần trợ giúp.</p>
-        </article>
-      </div>
-
-      <p class="notice">
-        Lưu ý: Bot không cam kết bỏ qua CAPTCHA hoặc vượt qua
-        cơ chế bảo vệ của website bên thứ ba. Nếu gặp CAPTCHA,
-        hãy xác minh trực tiếp theo hướng dẫn của website đó.
-      </p>
-    </section>
-
-    <section class="section guide-section" id="guide">
-      <div class="section-heading">
-        <p class="tag">BẮT ĐẦU</p>
-        <h2>Hướng dẫn sử dụng</h2>
-      </div>
-
-      <div class="steps">
-        <article class="step">
-          <span>01</span>
-          <div>
-            <h3>Mở bot</h3>
-            <p>Nhấn nút Mở bot Telegram ở đầu trang.</p>
-          </div>
-        </article>
-
-        <article class="step">
-          <span>02</span>
-          <div>
-            <h3>Nhấn Start</h3>
-            <p>Trong Telegram, nhấn Start hoặc gửi lệnh /start.</p>
-          </div>
-        </article>
-
-        <article class="step">
-          <span>03</span>
-          <div>
-            <h3>Xem lệnh hỗ trợ</h3>
-            <p>Gửi /help để xem danh sách lệnh mà bot cung cấp.</p>
-          </div>
-        </article>
-
-        <article class="step">
-          <span>04</span>
-          <div>
-            <h3>Gửi yêu cầu</h3>
-            <p>Làm theo hướng dẫn của bot. Chỉ gửi đường dẫn
-               mà bạn có quyền truy cập và kiểm tra.</p>
-          </div>
-        </article>
+          <article class="card">
+            <div class="card-icon">💬</div>
+            <h3>Hỗ trợ người dùng</h3>
+            <p>
+              Xem hướng dẫn sử dụng, tra cứu lệnh bot và liên hệ quản trị viên
+              để được trợ giúp.
+            </p>
+          </article>
+        </div>
       </div>
     </section>
 
-    <section class="section payment-section" id="payment">
-      <div class="section-heading">
-        <p class="tag">THANH TOÁN</p>
-        <h2>Quét mã ZaloPay</h2>
-        <p>Sử dụng mã QR nhận tiền chính thức của bạn.</p>
-      </div>
+    <section id="guide">
+      <div class="container">
+        <h2 class="section-title">Hướng dẫn sử dụng</h2>
+        <p class="section-desc">
+          Mở bot trên Telegram và gửi lệnh trong khung trò chuyện.
+        </p>
 
-      <div class="payment-card">
-        <img
-          src="zalopay-qr.png"
-          alt="Mã QR nhận tiền ZaloPay"
-          class="qr-image"
-          loading="lazy"
-        >
-        <h3>Thanh toán qua ZaloPay</h3>
-        <p>Quét mã bằng ứng dụng ZaloPay và kiểm tra kỹ
-           thông tin người nhận, số tiền trước khi xác nhận.</p>
-        <p class="small-note">
-          Sau khi chuyển tiền, hãy lưu lại biên nhận.
-          Việc gửi ảnh biên nhận không thay thế cho xác minh
-          giao dịch thực tế.
+        <div class="commands">
+          <div class="command">
+            <code>/start</code>
+            <span>Bắt đầu sử dụng bot</span>
+          </div>
+          <div class="command">
+            <code>/help</code>
+            <span>Xem hướng dẫn và danh sách lệnh</span>
+          </div>
+          <div class="command">
+            <code>/check URL</code>
+            <span>Kiểm tra một liên kết</span>
+          </div>
+          <div class="command">
+            <code>/history</code>
+            <span>Xem lịch sử kiểm tra nếu bot hỗ trợ</span>
+          </div>
+        </div>
+
+        <p class="section-desc" style="margin-top: 18px; margin-bottom: 0;">
+          Lưu ý: các lệnh trên chỉ hoạt động nếu đã được triển khai trong mã bot.
         </p>
       </div>
     </section>
 
-    <section class="section contact-section" id="contact">
-      <div class="contact-card">
-        <p class="tag">CẦN TRỢ GIÚP?</p>
-        <h2>Liên hệ quản trị viên</h2>
-        <p>Gửi tin nhắn nếu bạn cần hỗ trợ về bot hoặc thanh toán.</p>
-        <a class="button primary"
-           href="https://t.me/THAY_USERNAME_ADMIN"
-           target="_blank" rel="noopener">
-          Nhắn tin quản trị viên
-        </a>
+    <section id="payment">
+      <div class="container">
+        <h2 class="section-title">Thanh toán qua ZaloPay</h2>
+        <p class="section-desc">
+          Quét mã bên dưới nếu bạn muốn thanh toán cho dịch vụ được quản trị viên xác nhận.
+        </p>
+
+        <div class="payment-wrap">
+          <div class="payment-info">
+            <h3>Hướng dẫn thanh toán</h3>
+            <p>1. Mở ứng dụng ZaloPay trên điện thoại.</p>
+            <p>2. Quét mã QR được cung cấp ở bên cạnh.</p>
+            <p>3. Kiểm tra kỹ tên người nhận và số tiền trước khi xác nhận.</p>
+            <p>4. Giữ lại biên nhận và liên hệ quản trị viên nếu cần hỗ trợ.</p>
+          </div>
+
+          <div class="qr-card">
+            <h3>Mã QR ZaloPay</h3>
+
+            <!-- Đặt ảnh QR thật tên zalopay-qr.png cùng thư mục với index.html -->
+            <img
+              src="zalopay-qr.png"
+              alt="Mã QR thanh toán ZaloPay"
+              onerror="this.hidden=true; document.getElementById('qr-placeholder').hidden=false;"
+            >
+
+            <div class="qr-placeholder" id="qr-placeholder" hidden>
+              Chưa tìm thấy ảnh QR.<br>
+              Hãy tải ảnh của bạn lên với tên:<br>
+              <strong>zalopay-qr.png</strong>
+            </div>
+
+            <p class="note">
+              Chỉ thanh toán sau khi xác minh chính xác thông tin người nhận.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-card">
+          <h2>Liên hệ quản trị viên</h2>
+          <p>
+            Nếu gặp lỗi hoặc cần hỗ trợ sử dụng bottaogoogle,
+            hãy nhắn tin trực tiếp cho quản trị viên.
+          </p>
+
+          <!-- Thay ADMIN_USERNAME bằng username Telegram quản trị viên -->
+          <div class="buttons">
+            <a class="btn btn-primary"
+               href="https://t.me/ADMIN_USERNAME"
+               target="_blank"
+               rel="noopener noreferrer">
+              Nhắn tin quản trị viên
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
   <footer>
-    <p>© 2026 Telegram Bot Website</p>
-    <p>Website giới thiệu và hướng dẫn sử dụng bot.</p>
+    <div class="container">
+      © <span id="year"></span> bottaogoogle. All rights reserved.
+      <p>Vui lòng sử dụng bot một cách hợp pháp và tôn trọng quyền riêng tư.</p>
+    </div>
   </footer>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
 </body>
 </html>
