@@ -1,0 +1,185 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Website giới thiệu và hướng dẫn sử dụng bot Telegram.">
+  <title>Bot Telegram | Trang chủ</title>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: #151d32;
+      --text: #f4f7ff;
+      --muted: #bac5dc;
+      --blue: #69a7ff;
+      --green: #55d6a2;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    header {
+      padding: 18px 7%;
+      border-bottom: 1px solid #29344d;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    header a, nav a {
+      color: var(--text);
+      text-decoration: none;
+      margin-right: 14px;
+    }
+
+    .hero {
+      padding: 70px 7%;
+      text-align: center;
+      background: linear-gradient(135deg, #17264b, #0b1020);
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 5vw, 52px);
+      line-height: 1.2;
+    }
+
+    .hero p, .muted {
+      color: var(--muted);
+    }
+
+    .button {
+      display: inline-block;
+      padding: 12px 20px;
+      margin: 8px;
+      border-radius: 10px;
+      background: var(--blue);
+      color: #071020;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    main {
+      max-width: 1050px;
+      padding: 24px;
+      margin: auto;
+    }
+
+    section {
+      margin: 28px 0;
+      padding: 26px;
+      background: var(--panel);
+      border: 1px solid #29344d;
+      border-radius: 16px;
+    }
+
+    h2 { color: var(--green); }
+
+    .qr {
+      display: block;
+      width: min(100%, 320px);
+      margin: 20px auto;
+      padding: 10px;
+      background: white;
+      border-radius: 12px;
+    }
+
+    code {
+      color: #b8d7ff;
+      overflow-wrap: anywhere;
+    }
+
+    footer {
+      text-align: center;
+      padding: 28px;
+      color: var(--muted);
+      border-top: 1px solid #29344d;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <strong>🤖 Bot Telegram</strong>
+    <nav>
+      <a href="#features">Chức năng</a>
+      <a href="#guide">Hướng dẫn</a>
+      <a href="#payment">Thanh toán</a>
+      <a href="#contact">Liên hệ</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <h1>Chào mừng đến với Bot Telegram</h1>
+    <p>Trang giới thiệu dịch vụ, hướng dẫn sử dụng và hỗ trợ khách hàng.</p>
+    <a class="button" href="https://t.me/Bottaogoogle_bot">
+      Mở bot Telegram
+    </a>
+    <a class="button" href="#guide">Xem hướng dẫn</a>
+  </div>
+
+  <main>
+    <section id="features">
+      <h2>Chức năng</h2>
+      <ul>
+        <li>Kiểm tra URL và theo dõi chuyển hướng thông thường.</li>
+        <li>Thông báo khi trang yêu cầu CAPTCHA để người dùng tự xác minh.</li>
+        <li>Hướng dẫn sử dụng bot và tra cứu trạng thái yêu cầu.</li>
+        <li>Hỗ trợ khách hàng qua Telegram.</li>
+      </ul>
+      <p class="muted">
+        Bot không cam kết truy cập được mọi trang web hoặc tự vượt CAPTCHA.
+      </p>
+    </section>
+
+    <section id="guide">
+      <h2>Hướng dẫn sử dụng</h2>
+      <ol>
+        <li>Mở bot bằng nút Telegram ở đầu trang.</li>
+        <li>Nhấn Start hoặc gửi lệnh /start.</li>
+        <li>Đọc hướng dẫn của bot trước khi gửi đường dẫn.</li>
+        <li>Nếu gặp CAPTCHA, mở trang và tự xác minh theo yêu cầu.</li>
+        <li>Liên hệ quản trị viên nếu cần hỗ trợ.</li>
+      </ol>
+    </section>
+
+    <section id="payment">
+      <h2>Thanh toán ZaloPay</h2>
+      <p>
+        Quét mã QR bên dưới bằng ứng dụng ZaloPay.
+        Kiểm tra tên người nhận và số tiền trước khi xác nhận.
+      </p>
+
+      <img class="qr"
+           src="zalopay-qr.png"
+           alt="Mã QR thanh toán ZaloPay">
+
+      <p class="muted">
+        Sau khi chuyển tiền, vui lòng gửi mã giao dịch cho quản trị viên
+        để đối soát. Không gửi mật khẩu hoặc mã OTP.
+      </p>
+    </section>
+
+    <section id="contact">
+      <h2>Liên hệ hỗ trợ</h2>
+      <p>Telegram quản trị viên: @THAY_USERNAME_ADMIN</p>
+      <a class="button"
+         href="https://t.me/Bottaogoogle_bot">
+        Nhắn tin hỗ trợ
+      </a>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 Bot Telegram. Vui lòng sử dụng dịch vụ có trách nhiệm.
+  </footer>
+</body>
+</html>
